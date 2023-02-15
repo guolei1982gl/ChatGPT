@@ -1,7 +1,7 @@
 1.ChatGPT是什么？
 美国OpenAI公司研发的聊天机器人程序，于2022年11月30日发布。ChatGPT是人工智能技术驱动的自然语言处理工具，它能够通过学习和理解人类的语言来进行对话，还能根据聊天的上下文进行互动，真正像人类一样来聊天交流，甚至能完成撰写邮件、视频脚本、文案、翻译、代码，写论文等任务。
 
-如何用php调用chatgpt
+1.如何用php调用chatgpt
 用 PHP 调用 ChatGPT
 第一步：安装 ChatGPT 依赖
 
@@ -23,3 +23,25 @@ require_once 'vendor/autoload.php';
 $chatgpt = new ChatGPT\ChatGPT();
 $response = $chatgpt->ask('What is your name?');
 echo $response;
+
+2.Composer 安装 ChatGPT
+使用命令行安装 Composer：
+curl -sS https://getcomposer.org/installer | php
+在命令行中输入以下命令，安装 ChatGPT：
+composer require chatgpt/chatgpt
+
+3.在 PHP 中安装 OpenAI 的 PHP SDK
+首先，在 OpenAI 官网 上注册账号，并申请 API Key。
+获取 PHP SDK 源码，可以从 Github 上下载, 或者使用 composer 进行安装。
+composer require openai/openai
+将你的 API Key 放入 config.ini 中。
+可以使用以下代码检查安装是否成功：
+<?php 
+require_once 'vendor/autoload.php';
+
+$openai = new \OpenAI\Client("YOUR_API_KEY");
+$response = $openai->engines()->list();
+if ($response->isSuccessful()) {
+    echo "OpenAI PHP SDK installed successfully!";
+}
+?>
