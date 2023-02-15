@@ -1,2 +1,25 @@
 1.ChatGPT是什么？
 美国OpenAI公司研发的聊天机器人程序，于2022年11月30日发布。ChatGPT是人工智能技术驱动的自然语言处理工具，它能够通过学习和理解人类的语言来进行对话，还能根据聊天的上下文进行互动，真正像人类一样来聊天交流，甚至能完成撰写邮件、视频脚本、文案、翻译、代码，写论文等任务。
+
+如何用php调用chatgpt
+用 PHP 调用 ChatGPT
+第一步：安装 ChatGPT 依赖
+
+要使用 ChatGPT，首先需要安装以下依赖：
+
+PHP >= 7.0
+Composer
+第二步：安装 ChatGPT
+
+使用 Composer 安装 ChatGPT：
+
+composer require chatgpt/chatgpt
+第三步：使用 ChatGPT
+
+接下来，只需要在代码中引用 ChatGPT 即可：
+
+require_once 'vendor/autoload.php';
+
+$chatgpt = new ChatGPT\ChatGPT();
+$response = $chatgpt->ask('What is your name?');
+echo $response;
